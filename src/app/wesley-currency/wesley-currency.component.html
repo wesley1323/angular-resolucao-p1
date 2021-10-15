@@ -1,0 +1,25 @@
+<h2>Cotações</h2>
+
+<table border="1">
+  <tr>
+    <th>Data/hora</th>
+    <th>USD</th>
+    <th>EUR</th>
+    <th>BRL</th>
+  </tr>
+  <tr *ngFor="let rate of this.wallet.bitCoinRates, index as i">
+    <td>{{rate.time.updated}}</td>
+    <td>
+      <span [innerHTML]="rate.bpi.USD.symbol"></span>
+      {{rate.bpi.USD.rate_float}}
+    </td>
+    <td>
+      <span [innerHTML]="rate.bpi.EUR.symbol"></span>
+      {{rate.bpi.EUR.rate_float}}
+    </td>
+    <td>
+      <span>R$</span>
+      {{wallet.brlBitCoinRates[i]?.bpi.BRL.rate_float}}
+    </td>
+  </tr>
+</table>
